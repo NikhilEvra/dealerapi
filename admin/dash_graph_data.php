@@ -1,6 +1,7 @@
 <?php
- header('Access-Control-Allow-Origin: *');  
+header('Access-Control-Allow-Origin: *');  
 include ('config.php');
+
 $response = array();
 if($con){
     $sql = "select * from inventory where id = '4' ";
@@ -12,15 +13,15 @@ if($con){
             $response [$x]['a'] = $row['EX1'];
             $response [$x]['b'] = $row['EX2'];
             $response [$x]['c'] = $row['EX3'];
-          
-          
             $x++;
-            
         }
         echo json_encode($response,JSON_PRETTY_PRINT);
     }
-}else{
+
+}
+else{
     echo "error connecting database";
 }
+
 
 ?>

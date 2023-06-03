@@ -6,7 +6,7 @@ include ('config.php');
 
 $response = array();
 if($con){
-    $sql = "select * from user_master where `status` = 'Pending' ";
+    $sql = "select * from user_master where `status` = 'Active' ";
     $result = mysqli_query($con,$sql);
     if($result){
         $x = 0;
