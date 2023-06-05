@@ -8,11 +8,12 @@ include ('config.php');
 $response= array();
 // return json_encode($response);
 $d_id = $_POST['d_id'];
-// $gst = $_POST['gst'];
+$gst = $_POST['gst'];
 
 
 if($con){ 
-    $sql = "UPDATE `user_master` SET `status`='Pending' WHERE u_id = '$d_id'";
+    $sql = "INSERT INTO `otp`(`id`, `otp`) 
+    VALUES ('null','$gst')";
     $result = mysqli_query($con,$sql);
     if($result){
         echo json_encode(['status'=>true,'message'=>'Success!']);
