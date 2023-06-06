@@ -8,7 +8,6 @@ include ('config.php');
 $response= array();
 // return json_encode($response);
 $d_id = $_POST['d_id'];
-// $gst = $_POST['gst'];
 
 
 if($con){ 
