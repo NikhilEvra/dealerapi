@@ -19,6 +19,9 @@ $amount = $_POST['amount'];
 //     }
 // }
 
+$random = rand(11111,99999); 
+$po_id = "EE/PO/" . $random;
+
 if($con){ 
     $q = "SELECT * FROM cart where ( `dealer_id`, `status`) = ('$dealer_id','Open')";
 
@@ -28,7 +31,7 @@ while($row=mysqli_fetch_array($query)) {
   
   $id = $row['id'];   
 
-  $sql = "UPDATE `cart` SET `status`='PO-Pending' WHERE id = '$id' ";
+  $sql = "UPDATE `cart` SET `status`='PO-Pending',`po_id`='$po_id' WHERE id = '$id' ";
       
  $result = mysqli_query($con,$sql);
 }

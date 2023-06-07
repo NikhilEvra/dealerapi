@@ -16,7 +16,7 @@ if($con){
             $response [$x]['part_no'] = $row['part_no'];
             $response [$x]['warranty_info'] = $row['warranty_info'];
             $response [$x]['chassis'] = $row['chassis'];
-            // $response [$x]['status'] = $row['status'];
+            $response [$x]['replace_id'] = $row['replace_id'];
             $response [$x]['model'] = $row['model'];
             $response [$x]['c_name'] = $row['c_name'];
             $response [$x]['color'] = $row['color'];

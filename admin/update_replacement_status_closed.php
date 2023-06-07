@@ -4,20 +4,14 @@ header('Content-Type: application/json');
 // $entityBody = file_get_contents('php://input');
 
 include ('config.php');
-// echo json_encode($_REQUEST);
+
 $response= array();
-// return json_encode($response);
-$d_id = $_POST['d_id'];
-$gst = $_POST['gst'];
-$pan = $_POST['pan'];
-$dealership = $_POST['dealership_name'];
-$bank = $_POST['bank'];
-$outlet_code = $_POST['outlet_code'];
+
+$replace_id = $_POST['replace_id'];
 
 
 if($con){ 
-    $sql = "UPDATE `user_master` SET `dealership_name`='$dealership',`gst`='$gst',`pan`='$pan',`bank`='$bank',`outlet_code`='$outlet_code' 
-    WHERE `u_id`='$d_id'";
+    $sql = "UPDATE `replace_sparepart` SET `status`='Closed' WHERE replace_id = '$replace_id'";
     $result = mysqli_query($con,$sql);
     if($result){
         echo json_encode(['status'=>true,'message'=>'Success!']);
