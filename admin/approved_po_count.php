@@ -7,7 +7,7 @@ include ('config.php');
 
 $response = array();
 if($con){
-    $data=mysqli_query($con,"SELECT count(*) FROM po where  `status` = 'Open'  ");
+    $data=mysqli_query($con,"SELECT count(*) FROM po where  `status` = 'Approved'  ");
       
     while ($arr=mysqli_fetch_array($data)) 
     {
