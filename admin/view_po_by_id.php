@@ -22,6 +22,7 @@ if($con){
             $response [$x]['quantity_without_batt'] = $row['quantity_without_batt'];
             $response [$x]['amount_with_batt'] = $row['quantity_without_batt'];
             $response [$x]['amountWithOutBatt'] = $row['amountWithOutBatt'];
+            $response [$x]['status'] = $row['status'];
             $response [$x]['model'] = $row['model'];
             $response [$x]['add_time'] = $row['add_time'];
             $response [$x]['add_date'] = $row['add_date'];
