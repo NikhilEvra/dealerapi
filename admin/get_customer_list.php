@@ -11,6 +11,7 @@ if($con){
     if($result){
         $x = 0;
         while($row = mysqli_fetch_assoc($result)) {
+           
             $response [$x]['id'] = $row['id'];
             $response [$x]['invoice_id'] = $row['invoice_id'];
             $response [$x]['dealer_id'] = $row['dealer_id'];
@@ -37,7 +38,7 @@ if($con){
             $response [$x]['c_pan'] = $row['c_pan'];
             $response [$x]['district'] = $row['district'];
             $response [$x]['pincode'] = $row['pincode'];
-           
+            $response [$x]['c'] = $x;
             $x++;
           
         }
