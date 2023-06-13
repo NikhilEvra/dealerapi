@@ -5,6 +5,7 @@ include ('config.php');
 if (isset($_GET['d_id'])){
     $d_id = $_GET['d_id'];
 }
+
 $response = array();
 if($con){
     $sql = "select * from user_master where u_id = '$d_id' ";
@@ -21,6 +22,7 @@ if($con){
             $response [$x]['phone'] = $row['phone'];
             $x++;
         }
+        
         echo json_encode($response,JSON_PRETTY_PRINT);
     }
 
