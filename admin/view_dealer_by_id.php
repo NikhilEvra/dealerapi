@@ -26,7 +26,6 @@ if($con){
             $response [$x]['status'] = $row['status'];
             $response [$x]['phone'] = $row['phone'];
             $response [$x]['email'] = $row['email'];
-
             $x++;
           
         }
