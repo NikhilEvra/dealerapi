@@ -35,7 +35,7 @@ if($con){
                 $response [$x]['email'] = $row['email'];
                 $response [$x]['password'] = $row['password'];
                 $response [$x]['phone'] = $row['phone'];
-                // $response [$x]['usertype'] = $row['user_type'];
+                $response [$x]['panel'] = $row['panel'];
                 // $response [$x]['dealership_name'] = $row['dealership_name'];
                 $x++;
         
