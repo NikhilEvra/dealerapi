@@ -16,6 +16,7 @@ if($con){
             // $response [$x]['add_time'] = $row['add_time'];
             // $response [$x]['add_date'] = $row['add_date'];
             $response [$x]['amount'] = $row['amount'];
+            $response [$x]['company_status'] = $row['company_status'];
             $x++;
             
         }
