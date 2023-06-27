@@ -18,11 +18,13 @@ $t = date("h:i:sa");
     if($con){ 
         
         $sql = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
-                VALUES (Null,'Store','Check Inventory','Active','$d','$t','Operations','$panel_id','$po_id')";
+                VALUES (Null,'Operations','Inventory Checked','Active','$d','$t','Store','$panel_id','$po_id')";
 
         $sql2 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$panel_id','$d','$t','$po_id')";
         
-        $sql3 = "UPDATE `po` SET (`company_status`,`dept_status`)=('Store','Inventory check') WHERE po_id = '$po_id'";
+        $sql3 = "UPDATE `po` SET `company_status` = 'Operations',
+        `dept_status`='Inventory available'
+         WHERE po_id = '$po_id'";
 
         $result = mysqli_query($con,$sql);
         $result2 = mysqli_query($con,$sql2);
