@@ -7,6 +7,7 @@ include ('config.php');
 // echo json_encode($_REQUEST);
 $response= array();
 // return json_encode($response);
+
 $dealerid = $_POST['dealerid'];
 $model = $_POST['model'];
 $varient = $_POST['color'];
@@ -21,9 +22,6 @@ $grand_total = $total + $gst;
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
 $t = date("h:i:sa");
-
-
-
 
 if($con){ 
     $sql = "INSERT INTO `cart`(`id`, `status`, `dealer_id`, `model`, `varient`, `quantity_with_batt`, `quantity_without_batt`, `amountWithOutBatt`, `amountWithBatt`, `total`, `add_time`, `add_date`) 

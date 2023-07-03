@@ -49,7 +49,7 @@ while($row = mysqli_fetch_array($result3)) {
 }
 
 $sql2 = "INSERT INTO `po`(`id`, `po_id`, `dealer_id`, `amount`, `status`, `add_date`, `add_time`) 
-VALUES ('null','$po_id','$dealer_id','$amount','Open','$d','$t')"; 
+VALUES ('null','$po_id','$dealer_id','$amount','PO-Pending','$d','$t')"; 
 $result2 = mysqli_query($con,$sql2);
 
 if($result && $result2){

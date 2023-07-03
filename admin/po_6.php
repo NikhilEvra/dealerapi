@@ -4,7 +4,6 @@ header('Content-Type: application/json');
 // $entityBody = file_get_contents('php://input');
 
 include ('config.php');
-
 $response= array();
 
 $po_id = $_POST['po_id'];
@@ -18,13 +17,13 @@ $t = date("h:i:sa");
     if($con){ 
         
         $sql = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
-                VALUES (Null,'Store','Check Inventory','Active','$d','$t','Operations','$panel_id','$po_id')";
+                VALUES (Null,'Dealer','Request Payment','Active','$d','$t','Services','$panel_id','$po_id')";
 
         $sql2 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$panel_id','$d','$t','$po_id')";
         
-        $sql3 = "UPDATE `po` SET `company_status` = 'Store',
-        `dept_status`='Inventory check'
-         WHERE po_id = '$po_id'"; 
+        $sql3 = "UPDATE `po` SET `company_status` = 'Dealer',
+        `dept_status`='Make Payment'
+         WHERE po_id = '$po_id'";
 
         $result = mysqli_query($con,$sql);
         $result2 = mysqli_query($con,$sql2);

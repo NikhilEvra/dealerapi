@@ -18,12 +18,10 @@ if($con){
     $sql2 = "UPDATE `cart` SET `status`='Po-Approved' , `approved_time`='$t' , `approved_date`='$d'   WHERE po_id = '$po_id'";
     
    
-    
-
     $result = mysqli_query($con,$sql);
     $result2 = mysqli_query($con,$sql2);
 
-    $data=mysqli_query($con,"SELECT count(*) FROM po where  `status` = 'Approved'  ");
+    $data=mysqli_query($con,"SELECT count(*) FROM po where  `status` = 'Open'  ");
       
     while ($arr=mysqli_fetch_array($data)) 
     {
