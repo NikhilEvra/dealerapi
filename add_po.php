@@ -52,7 +52,14 @@ $sql2 = "INSERT INTO `po`(`id`, `po_id`, `dealer_id`, `amount`, `status`, `add_d
 VALUES ('null','$po_id','$dealer_id','$amount','PO-Pending','$d','$t')"; 
 $result2 = mysqli_query($con,$sql2);
 
-if($result && $result2){
+$sql3 = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
+VALUES (Null,'Services','New Po Raised','Active','$d','$t','Dealer','$dealer_id','$po_id')";
+
+$sql4 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$dealer_id','$d','$t','$po_id')";
+$result3 = mysqli_query($con,$sql3);
+$result4 = mysqli_query($con,$sql4);
+
+if($result && $result2 && $result3 && $result4){
     echo json_encode(['status'=>true,'message'=>'Success!']);
 }else{
     echo json_encode(['status'=>false,'message'=>'Something Went Wrong!']);

@@ -16,14 +16,12 @@ $d = date("Y/m/d");
 $t = date("h:i:sa");
 
 if($con){ 
+    
     $sql = "UPDATE `po` SET `status`='Open', `approved_time`='$t' , `approved_date`='$d'  WHERE po_id = '$po_id'";
     $sql2 = "UPDATE `cart` SET `status`='Po-Approved' , `approved_time`='$t' , `approved_date`='$d'   WHERE po_id = '$po_id'";
-    
-   
-   
 
     $sql3 = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
-    VALUES (Null,'Services','Sent For Approval','Active','$d','$t','Operations','$panel_id','$po_id')";
+    VALUES (Null,'Operations','PO Approved','Active','$d','$t','Services','$panel_id','$po_id')";
 
     $sql4 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$panel_id','$d','$t','$po_id')";
 
