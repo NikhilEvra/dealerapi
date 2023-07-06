@@ -10,7 +10,7 @@ $response= array();
 $po_id = $_POST['po_id'];
 $dealerid = $_POST['dealerid'];
 $panel_id = $_POST['panel_id'];
-
+-
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
 $t = date("h:i:sa");
