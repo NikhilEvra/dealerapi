@@ -13,10 +13,13 @@ $pan = $_POST['pan'];
 $dealership = $_POST['dealership_name'];
 $bank = $_POST['bank'];
 $outlet_code = $_POST['outlet_code'];
+$deposit = $_POST['deposit'];
+$credit_amt = $_POST['credit_amt'];
 
 
 if($con){ 
-    $sql = "UPDATE `user_master` SET `dealership_name`='$dealership',`gst`='$gst',`pan`='$pan',`bank`='$bank',`outlet_code`='$outlet_code' 
+    $sql = "UPDATE `user_master` SET `dealership_name`='$dealership',`gst`='$gst',`pan`='$pan',`bank`='$bank',`outlet_code`='$outlet_code' ,`s_deposit`='$deposit',
+    `credit_limit`='$credit_amt' 
     WHERE `u_id`='$d_id'";
     $result = mysqli_query($con,$sql);
     if($result){

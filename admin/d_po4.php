@@ -17,15 +17,14 @@ $d = date("Y/m/d");
 $t = date("h:i:sa");
 
     if($con){ 
-        
         $sql = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
-                VALUES (Null,'Operations','PO Recieved Back From Store','Active','$d','$t','Store','$panel_id','$po_id')";
+                VALUES (Null,'Operations','PO Recieved Back From Operations','Active','$d','$t','Accounts','$panel_id','$po_id')";
 
         $sql2 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$panel_id','$d','$t','$po_id')";
         
-        $sql3 = "UPDATE `po` SET `company_status` = 'Services',
-        `dept_status`='PO_s_by_store',
-        `store_remarks`='$remarks'
+        $sql3 = "UPDATE `po` SET `company_status` = 'Operations',
+        `dept_status`='PO_s_by_accounts',
+        `accounts_remarks`='$remarks'
          WHERE po_id = '$po_id'"; 
 
         $result = mysqli_query($con,$sql);

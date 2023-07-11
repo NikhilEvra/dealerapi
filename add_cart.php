@@ -24,8 +24,8 @@ $d = date("Y/m/d");
 $t = date("h:i:sa");
 
 if($con){ 
-    $sql = "INSERT INTO `cart`(`id`, `status`, `dealer_id`, `model`, `varient`, `quantity_with_batt`, `quantity_without_batt`, `amountWithOutBatt`, `amountWithBatt`, `total`, `add_time`, `add_date`) 
-    VALUES ('null','Open','$dealerid','$model','$varient','$q_with_b','$q_without_b','$a_without_b','$a_with_b','$grand_total','$t','$d')";
+    $sql = "INSERT INTO `cart`(`id`, `status`, `dealer_id`, `model`, `varient`, `quantity_with_batt`, `quantity_without_batt`, `amountWithOutBatt`, `amountWithBatt`, `without_tax_total`, `total`, `add_time`, `add_date`) 
+    VALUES ('null','Open','$dealerid','$model','$varient','$q_with_b','$q_without_b','$a_without_b','$a_with_b','$total','$grand_total','$t','$d')";
     $result = mysqli_query($con,$sql);
     if($result){
         echo json_encode(['status'=>true,'message'=>'Success!']);
