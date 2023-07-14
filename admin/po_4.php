@@ -10,6 +10,7 @@ $response= array();
 $po_id = $_POST['po_id'];
 $dealerid = $_POST['dealerid'];
 $panel_id = $_POST['panel_id'];
+$remarks = $_POST['remarks'];
 
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
@@ -32,6 +33,7 @@ move_uploaded_file($img_name, $target_path);
         
         $sql3 = "UPDATE `po` SET `company_status` = 'Operations',
         `dept_status`='Quote Generated',
+        `accounts_remarks`='$remarks',
         `quote`='$img_n'
          WHERE po_id = '$po_id'";
 

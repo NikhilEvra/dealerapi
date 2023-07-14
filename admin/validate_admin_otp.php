@@ -51,4 +51,5 @@ if($con){
 else{
     echo json_encode(['status'=>false,'message'=>'Error!']);
 }
+
 ?>
