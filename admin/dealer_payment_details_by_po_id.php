@@ -15,9 +15,8 @@ if($con){
         $x = 0;
         while($row = mysqli_fetch_assoc($result)) {
             $response [$x]['id'] = $row['id'];
-            $response [$x]['accounts_remarks'] = $row['accounts_remarks'];
-            $response [$x]['operations_remarks'] = $row['operations_remarks'];
-            $response [$x]['store_remarks'] = $row['store_remarks'];
+        
+            $response [$x]['trans_made'] = $row['trans_made'];
             $response [$x]['dealer_remarks'] = $row['dealer_remarks'];
                  
         }

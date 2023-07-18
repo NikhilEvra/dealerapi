@@ -19,6 +19,7 @@ $response= array();
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
 $t = date("h:i:sa");
+
 $path = "https://evramedia.com/apifolder/folder/";
 $img = $_FILES['file']['name'];
 $img_n = $path.$img;
@@ -27,7 +28,9 @@ $target_path = "folder/";
 $target_path = $target_path.basename( $_FILES['file']['name']);   
 move_uploaded_file($img_name, $target_path);
 if($con){ 
-    $sql = "INSERT INTO `complaints`(`id`, `c_date`, `c_time`, `name`, `location`, `designation`, `topic`, `remark`, `filename`, `status`, `complaint_id`) VALUES ('null', '$d', '$t', '".$_POST['name']."','".$_POST['location']."','".$_POST['designation']."','".$_POST['topic']."','".$_POST['remark']."','$img_n','Open', '$cc_id')";
+    $sql = "INSERT INTO `complaints`(`id`, `c_date`, `c_time`, `name`, `location`, `designation`, `topic`, `remark`, `filename`, `status`, `complaint_id`) 
+    VALUES ('null', '$d', '$t', '".$_POST['name']."','".$_POST['location']."','".$_POST['designation']."','".$_POST['topic']."','".$_POST['remark']."',
+    '$img_n','Open', '$cc_id')";
     $result = mysqli_query($con,$sql);
     if($result){
         echo json_encode(['status'=>true,'message'=>'Success!']);

@@ -16,7 +16,7 @@ if($con){
         while($row = mysqli_fetch_assoc($result)) {
             $response [$x]['id'] = $row['id'];
             $response [$x]['po_id'] = $row['po_id'];
-            // $response [$x]['varient'] = $row['varient'];
+            $response [$x]['company_status'] = $row['company_status'];
             // $response [$x]['quantity_with_batt'] = $row['quantity_with_batt'];
             // $response [$x]['quantity_without_batt'] = $row['quantity_without_batt'];
             // $response [$x]['amountWithOutBatt'] = $row['amountWithOutBatt'];
