@@ -5,7 +5,7 @@ include ('config.php');
 
 $response = array();
 if($con){
-    $sql = "select * from po where `status` = 'Open' AND `company_status` = 'Store' ORDER BY id DESC ";
+    $sql = "select * from po where `status` = 'Open' AND `company_status` = 'Store' AND `dept_status` = 'Inventory check' ORDER BY id DESC ";
     $result = mysqli_query($con,$sql);
     if($result){
         $x = 0;
