@@ -1,7 +1,7 @@
 <?php
  header('Access-Control-Allow-Origin: *');  
 include ('config.php');
-if (isset($_GET['varient'])){
+if (isset($_GET['varient'])){ 
     $varient = $_GET['varient'];
 }
 if (isset($_GET['m'])){

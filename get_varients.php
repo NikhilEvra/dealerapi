@@ -37,7 +37,7 @@ if($con){
     if($result){
         $x = 0;
         while($row = mysqli_fetch_assoc($result)) {
-            $response [$x]['id'] = $row['id'];
+            $response [$x]['id'] = $row['id']; 
             $response [$x]['color'] = $row['color'];
             $response [$x]['p_id'] = $row['p_id'];
             $response [$x]['banner'] = $row['banner_image'];
