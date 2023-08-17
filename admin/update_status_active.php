@@ -15,7 +15,7 @@ if($con){
     $result1 = mysqli_query($con,$data1);
     while($row = mysqli_fetch_assoc($result1)) { 
       $dealership = $row['dealership_name'];
-      $gst = $row['gst'];
+      $gst = $row['gst']; 
       $outlet = $row['outlet_code'];
       $pan = $row['pan'];
       $bank = $row['bank'];

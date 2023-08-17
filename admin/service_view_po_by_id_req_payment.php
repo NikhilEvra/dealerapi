@@ -18,7 +18,7 @@ if($con){
             $response [$x]['varient'] = $row['varient'];
             $response [$x]['quantity_with_batt'] = $row['quantity_with_batt'];
             $response [$x]['quantity_without_batt'] = $row['quantity_without_batt'];
-            $response [$x]['amount_with_batt'] = $row['quantity_without_batt'];
+            $response [$x]['amount_with_batt'] = $row['amountWithBatt'];
             $response [$x]['amountWithOutBatt'] = $row['amountWithOutBatt'];
             $response [$x]['status'] = $row['status'];
             $response [$x]['model'] = $row['model'];

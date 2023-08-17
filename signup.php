@@ -71,9 +71,43 @@ if($con){
                     curl_close($curl);
                     
 
+                 
+
                 $result2 = mysqli_query($con,$sql2);
 
-                if($result && $result2){
+                
+                $model = array(
+                    'EX1', 'EX2', 'EX2+', 'EX3', 'LUSTER', 'HELTER',
+                    'MINE'
+                    );
+                    foreach ($model as $x ) {
+                    $sql3 = "INSERT INTO `model_inv`(`id`, `dealer_id`, `model`, `inventory`)
+                    VALUES (Null,'$uu_id','$x','0')";
+                    $result3 = mysqli_query($con, $sql3);
+                    
+                    }
+                    
+                //  $response=array();
+
+                    $sql4="select * from company_color_inv where status = 'Active' ";
+                    $result4 = mysqli_query($con,$data4);
+                    $x=0;
+                    while($row = mysqli_fetch_assoc($result4)) { 
+                      $model1 = $row['model'];
+                      $color1 = $row['color'];
+                      foreach ($model1 as $m ) {
+                        foreach ($color1 as $c ) {
+                        $sql5 = "INSERT INTO `color_inv`(`id`, `dealer_id`, `model`, `color`, `inventory`)
+                        VALUES (Null,'$uu_id','$m','$c','0')";
+                        $result5 = mysqli_query($con, $sql5);
+                        }
+                        }
+                     $x++;
+                  }
+   
+                 
+
+                if($result && $result2 && $result3&& $result4&& $result5){
                     echo json_encode(['status'=>true,'message'=>'Success!']);
                 }else{
                     echo json_encode(['status'=>false,'message'=>'Something Went Wrong!']);

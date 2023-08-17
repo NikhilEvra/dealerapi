@@ -36,6 +36,8 @@ if($con){
                 $response [$x]['phone'] = $row['phone'];
                 $response [$x]['usertype'] = $row['user_type'];
                 $response [$x]['dealership_name'] = $row['dealership_name'];
+                $response [$x]['address'] = $row['address'];
+
                 $x++;
         
             }

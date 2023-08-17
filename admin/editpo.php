@@ -22,10 +22,14 @@ date_default_timezone_set("Asia/Calcutta");
 $d = date("Y/m/d");
 $t = date("h:i:sa");
 
+$total = $amountWithOutBatt + $amountWithBatt;
+$gst = $total * 5 / 100;
+$grand_total = $total + $gst;
+
+
 
 if($con){ 
     $q = "SELECT * FROM cart where ( `po_id`, `id`) = ('$po_id','$id')";
-
 $query = mysqli_query($con,$q);
 while($row=mysqli_fetch_array($query)) {
   
@@ -50,34 +54,31 @@ while($row=mysqli_fetch_array($query)) {
   $disapprove_date = $row['disapprove_date'];   
 
 
+   
+
   $sql = "INSERT INTO `cart_backup`(`id`, `po_id`, `status`, `dealer_id`, `model`, `varient`, `quantity_with_batt`, `quantity_without_batt`, `amountWithOutBatt`,
-   `amountWithBatt`, `unit_price`, `total`, `without_tax_total`, `add_time`, `add_date`, `approved_time`, `approved_date`, `disapprove_time`, `disapprove_date`) 
-  VALUES (null,$po_id,[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],
-  [value-16],[value-17],[value-18],[value-19]) ";
-      
- $result = mysqli_query($con,$sql);
+  `amountWithBatt`, `unit_price`, `total`, `without_tax_total`, `add_time`, `add_date`, `approved_time`, `approved_date`, `disapprove_time`, `disapprove_date`) 
+ VALUES (null,'$po_id','$status','$dealer_id','$model','$varient','$quantity_with_batt','$quantity_without_batt','$amountWithOutBatt','$amountWithBatt',
+ '$unit_price','$total','$without_tax_total','$add_time','$add_date','$approved_time','$approved_date','$disapprove_time','$disapprove_date') ";
+     
+  $result = mysqli_query($con,$sql);
 }
 
+$sql2 = "UPDATE `cart` SET `model` = '$model',
+`varient`='$varient',
+`quantity_with_batt`='$q_w_b',
+`amountWithBatt`='$amt_w_b',
+`quantity_without_batt`='$q_wo_b',
+`amountWithOutBatt`='$amt_wo_b',
+`total`='$grand_total',
+`without_tax_total`='$total',
+`add_time`='$t',
+`add_date`='$d'
+ WHERE po_id = '$po_id' AND id = '$id'";
+ $result2 = mysqli_query($con,$sql2);
 
-// $data="SELECT SUM(total) AS 'Total' FROM cart WHERE po_id = '$po_id' AND status = 'PO-Pending' ";
-// $result3 = mysqli_query($con,$data);
-// while($row = mysqli_fetch_array($result3)) {
 
-//   $amount = $row['Total'];
-// }
-
-// $sql2 = "INSERT INTO `po`(`id`, `po_id`, `dealer_id`, `amount`, `status`, `add_date`, `add_time`) 
-// VALUES ('null','$po_id','$dealer_id','$amount','PO-Pending','$d','$t')"; 
-// $result2 = mysqli_query($con,$sql2);
-
-// $sql3 = "INSERT INTO `notifications`(`id`, `panel`, `message`, `status`, `date`, `time`, `sender_panel`, `sender_id`,`po_id`)
-// VALUES (Null,'Services','New Po Raised','Active','$d','$t','Dealer','$dealer_id','$po_id')";
-
-// $sql4 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$dealer_id','$d','$t','$po_id')";
-// $result3 = mysqli_query($con,$sql3);
-// $result4 = mysqli_query($con,$sql4);
-
-if($result){
+if($result && $result2){
     echo json_encode(['status'=>true,'message'=>'Success!']);
 }else{
     echo json_encode(['status'=>false,'message'=>'Something Went Wrong!']);
