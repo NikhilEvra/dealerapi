@@ -31,6 +31,18 @@ if($con){
         $response [$x] ['outlet_code'] = $fetch_user['outlet_code'];
         $response [$x] ['credit_limit'] = $fetch_user['credit_limit'];
         $response [$x] ['s_deposit'] = $fetch_user['s_deposit'];
+
+        $response [$x] ['alt_phone'] = $fetch_user['alt_phone'];
+        $response [$x] ['signature_upload'] = $fetch_user['signature_upload'];
+        $response [$x] ['Account_num'] = $fetch_user['Account_num'];
+        $response [$x] ['ifsc_code'] = $fetch_user['ifsc_code'];
+        $response [$x] ['account_type'] = $fetch_user['account_type'];
+        $response [$x] ['upload_cancel_cheque'] = $fetch_user['upload_cancel_cheque'];
+
+        $response [$x] ['pincode'] = $fetch_user['pincode'];
+        $response [$x] ['state'] = $fetch_user['state'];
+        $response [$x] ['district'] = $fetch_user['district'];
+
         $x++ ;
     }
     

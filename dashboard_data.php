@@ -60,8 +60,24 @@ if($con){
         $e ['adv_bal'] = $row['adv_bal'];
 
         }
+
+        $data=mysqli_query($con,"SELECT count(*) FROM `finance_partner` where `status` = 'Active' ");
         
-        $response = array(array($a),array($b),array($c),array($d),array($e));
+        while ($arr=mysqli_fetch_array($data)) 
+        {
+           $f ['f_partner']=$arr['count(*)']; 
+           
+        }
+        $data=mysqli_query($con,"SELECT count(*) FROM `insurance_partner` where `status` = 'Active' ");
+        
+        while ($arr=mysqli_fetch_array($data)) 
+        {
+           $g ['i_partner']=$arr['count(*)']; 
+           
+        }
+        
+        
+        $response = array(array($a),array($b),array($c),array($d),array($e),array($f),array($g));
             echo json_encode($response,JSON_PRETTY_PRINT);
     
 } else{
