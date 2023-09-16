@@ -19,6 +19,7 @@ $a_without_b = $_POST['amountWithOutBatt'];
 $total = $a_with_b + $a_without_b;
 $gst = $total * 5 / 100;
 $grand_total = $total + $gst;
+
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
 $t = date("h:i:sa");

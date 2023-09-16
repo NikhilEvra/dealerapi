@@ -40,6 +40,10 @@ while($row=mysqli_fetch_array($query)){
 $u_id = $id + '1';
 $uu_id = "EE/RR/00" . $u_id;
 
+date_default_timezone_set("Asia/Calcutta");  
+$d = date("Y/m/d");
+$t = date("h:i:sa");
+
 
 if($con){ 
     $sql = "INSERT INTO `replace_sparepart`(`id`, `dealerid`, `replace_id`, `part_name`, `part_no`, `warranty_info`, `file`, `remark`, `chassis`, `model`, `color`, `c_name`, `sale_date`, `warranty`, `docked`, `courier`, `courier_partner`, `status`)

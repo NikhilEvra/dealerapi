@@ -15,7 +15,6 @@ if($con){
         while($row = mysqli_fetch_assoc($result)) {
             $response [$x]['id'] = $row['id'];
             $response [$x]['date'] = $row['date'];
-
             $response [$x]['title'] = $row['topic'];
            
            

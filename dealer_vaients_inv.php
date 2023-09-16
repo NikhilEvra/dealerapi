@@ -6,9 +6,11 @@ include ('config.php');
 
 
 $model = $_POST['model'];
+$d_id = $_POST['id'];
+
 $response = array();
 if($con){
-    $sql = "select * from color_inv  where  `model` = '$model' AND inventory > '0'  ";
+    $sql = "select * from color_inv  where  `model` = '$model' AND `dealer_id` = '$d_id'  AND inventory > 0  ";
     $result = mysqli_query($con,$sql);
     if($result){
         $x = 0;

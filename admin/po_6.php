@@ -9,6 +9,7 @@ $response= array();
 $po_id = $_POST['po_id'];
 $dealerid = $_POST['dealerid'];
 $panel_id = $_POST['panel_id'];
+$payment_status = $_POST['payment_status'];
 
 date_default_timezone_set("Asia/Calcutta");  
 $d = date("Y/m/d");
@@ -22,7 +23,10 @@ $t = date("h:i:sa");
         $sql2 = "INSERT INTO `notifications_entry`(`id`, `n_id`, `date`, `time`, `po_id`) VALUES (Null,'$panel_id','$d','$t','$po_id')";
         
         $sql3 = "UPDATE `po` SET `company_status` = 'Dealer',
-        `dept_status`='Make Payment'
+        `dept_status`='Make Payment',
+        `payment_status`='$payment_status'
+
+        
          WHERE po_id = '$po_id'";
 
         $result = mysqli_query($con,$sql);

@@ -15,9 +15,11 @@ include ('config.php');
 // }
 
 $m = $_POST['model'];
-$u_type = $_POST['u_type'];
+$u_type = $_POST['usertype'];
 $battery = $_POST['battery'];
 $varient = $_POST['varient'];
+$plan_type = $_POST['plan_type'];
+
 
 
 $response = array();
@@ -25,7 +27,7 @@ if($con){
     if($u_type = 'Dealer'){
 
         if($battery == 'Lithium ion'){
-            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m'   ";
+            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m' AND  `plan_type` = '$plan_type' ";
             $result = mysqli_query($con,$sql);
             if($result){
                 $x = 0;
@@ -41,7 +43,7 @@ if($con){
 
         }
         elseif($battery == 'Lead acid'){
-            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m'   ";
+            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m' AND  `plan_type` = '$plan_type'  ";
             $result = mysqli_query($con,$sql);
             if($result){
                 $x = 0;
@@ -59,8 +61,8 @@ if($con){
        
     }
     elseif($u_type = 'Sub-Dealer'){
-        if($battery = 'L-ION'){
-            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m' ";
+        if($battery == 'Lithium ion'){
+            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m' AND  `plan_type` = '$plan_type'";
             $result = mysqli_query($con,$sql);
             if($result){
                 $x = 0;
@@ -75,8 +77,8 @@ if($con){
             }
 
         }
-        elseif($battery = 'Lead Acid'){
-            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m'   ";
+        elseif($battery == 'Lead Acid'){
+            $sql = "select * from dealer_subdealer_price where  `color` = '$varient' AND  `model` = '$m'  AND  `plan_type` = '$plan_type'  ";
             $result = mysqli_query($con,$sql);
             if($result){
                 $x = 0;

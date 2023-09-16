@@ -24,6 +24,9 @@ if($con){
             $response [$x]['amountWithBatt'] = $row['amountWithBatt'];
             $response [$x]['total'] = $row['total'];
             $response [$x]['withput_gst'] = $row['amountWithOutBatt'] + $row['amountWithBatt'];
+            $response [$x]['spare_part_id'] = $row['spare_part_id'];
+            $response [$x]['spare_part_qty'] = $row['spare_part_qty'];
+
            
             $x++;
           
