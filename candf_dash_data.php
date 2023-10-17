@@ -1,16 +1,14 @@
 <?php
- header('Access-Control-Allow-Origin: *');  
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json'); 
 include ('config.php');
-if (isset($_GET['d_id'])){
-    $d_id = $_GET['d_id'];
-}
 
-// $d_id = '11';
+$state = $_POST['state'];
 
 $response = array();
 
 if($con){
-    $data=mysqli_query($con,"SELECT count(*) FROM cart where  `dealer_id` = '$d_id' AND `status` = 'Open' ");
+    $data=mysqli_query($con,"SELECT count(*) FROM user_master where  `user_type` != 'C&F' AND `state` = '$state' ");
       
     while ($arr=mysqli_fetch_array($data)) 
     {
